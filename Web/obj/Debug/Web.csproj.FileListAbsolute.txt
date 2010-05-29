@@ -1,0 +1,10 @@
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\bin\MultiTenancy.Web.dll
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\bin\MultiTenancy.Web.pdb
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\bin\MultiTenancy.Core.dll
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\bin\Spark.dll
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\bin\Spark.Web.Mvc.dll
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\bin\StructureMap.dll
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\bin\MultiTenancy.Core.pdb
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\obj\Debug\MultiTenancy.Web.dll
+C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Web\obj\Debug\MultiTenancy.Web.pdb

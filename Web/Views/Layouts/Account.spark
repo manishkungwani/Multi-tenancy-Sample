@@ -1,0 +1,9 @@
+<html>
+  <head>
+    <title>Account Layout</title>
+  </head>
+  <body>    
+    <h1>Account Section</h1>
+    <use content="view"/>
+  </body>
+</html>

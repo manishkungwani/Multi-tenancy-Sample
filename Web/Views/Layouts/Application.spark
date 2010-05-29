@@ -1,0 +1,9 @@
+<html>
+  <head>
+    <title>Multi-tenancy Sample</title>
+  </head>
+  <body>
+    <h1>Multi-tenancy Sample</h1>
+    <use content="view"/>
+  </body>
+</html>
