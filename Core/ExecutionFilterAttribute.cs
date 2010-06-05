@@ -1,5 +1,4 @@
-﻿
-namespace MultiTenancy.Core
+﻿namespace MultiTenancy.Core
 {
     using System;
     using System.Web;

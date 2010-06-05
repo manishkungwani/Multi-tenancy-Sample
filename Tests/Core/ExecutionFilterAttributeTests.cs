@@ -2,9 +2,9 @@
 using System.Web;
 using System.Web.Mvc;
 using Moq;
+using MultiTenancy.Core;
 using StructureMap;
 using Xunit;
-using MultiTenancy.Core;
 
 namespace MultiTenancy.Tests.Core
 {

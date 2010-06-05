@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MultiTenancy.Core;
 using Moq;
+using MultiTenancy.Core;
 using Xunit;
 using Xunit.Extensions;
 

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using MultiTenancy.Core;
 using Moq;
+using MultiTenancy.Core;
 using StructureMap;
 using Xunit;
 

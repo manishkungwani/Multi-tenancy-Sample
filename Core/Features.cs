@@ -71,8 +71,7 @@
         /// <returns>Found feature in the enumerable. Null if not found.</returns>
         private static IFeature FindFeature(IEnumerable<IFeature> features, string pathValue)
         {
-            return features.Where(f => f.FeatureName.Trim().Equals(pathValue.Trim(), StringComparison.OrdinalIgnoreCase))
-                           .SingleOrDefault();
+            return features.SingleOrDefault(f => f.FeatureName.Trim().Equals(pathValue.Trim(), StringComparison.OrdinalIgnoreCase));
         }
     }
 }

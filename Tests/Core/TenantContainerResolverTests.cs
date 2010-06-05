@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Routing;
-using MultiTenancy.Core;
 using Moq;
+using MultiTenancy.Core;
 using StructureMap;
 using Xunit;
 

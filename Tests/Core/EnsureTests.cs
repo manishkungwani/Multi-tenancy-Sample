@@ -1,7 +1,7 @@
 ﻿using System;
+using MultiTenancy.Core;
 using Xunit;
 using Xunit.Extensions;
-using MultiTenancy.Core;
 
 namespace MultiTenancy.Tests.Core
 {

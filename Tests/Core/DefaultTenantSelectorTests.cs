@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Web;
 using System.Web.Routing;
+using Moq;
 using MultiTenancy.Core;
 using MultiTenancy.Tests.Helpers;
-using Moq;
 using Xunit;
 
 namespace MultiTenancy.Tests.Core.Specifications

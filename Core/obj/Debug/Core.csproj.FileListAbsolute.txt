@@ -1,8 +1,0 @@
-C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Core\bin\Debug\MultiTenancy.Core.dll
-C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Core\bin\Debug\MultiTenancy.Core.pdb
-C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Core\bin\Debug\Spark.dll
-C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Core\bin\Debug\Spark.Web.Mvc.dll
-C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Core\bin\Debug\StructureMap.dll
-C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Core\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Core\obj\Debug\MultiTenancy.Core.dll
-C:\Users\Zack\Documents\Projects\Multi-tenancy-Sample\Core\obj\Debug\MultiTenancy.Core.pdb
