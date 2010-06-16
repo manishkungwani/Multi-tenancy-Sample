@@ -16,6 +16,9 @@ This sample utilizes the following utilities:
 
 The following are blog posts on this implementation:
 http://weblogs.asp.net/zowens/archive/2010/05/26/multi-tenant-asp-net-mvc-introduction.aspx
+http://weblogs.asp.net/zowens/archive/2010/05/29/multi-tenant-asp-net-foundation.aspx
+http://weblogs.asp.net/zowens/archive/2010/06/07/mulit-tenant-asp-net-mvc-controllers.aspx
+http://weblogs.asp.net/zowens/archive/2010/06/16/multi-tenant-asp-net-mvc-views.aspx
 
 ------------------------------------
 
