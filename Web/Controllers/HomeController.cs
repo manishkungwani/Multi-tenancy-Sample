@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
+using Spark;
 
 namespace MultiTenancy.Web.Controllers
 {
-    // [Precompile]
-    // [Precompile("_Notification", "Ajax")]
+    [Precompile]
     public class HomeController : Controller
     {
         public ActionResult Index()

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7FC4CED4-897E-4789-AFF4-B6BE5F02CDEA}</ProjectGuid>
+    <ProjectGuid>{127FDC6C-FFD0-4E1B-A505-BD2A9E4F37F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MultiTenancy.Core</RootNamespace>
-    <AssemblyName>MultiTenancy.Core</AssemblyName>
+    <RootNamespace>MultiTenancy.Tenants.Sample1</RootNamespace>
+    <AssemblyName>MultiTenancy.Tenants.Sample1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,15 +37,17 @@
     <Reference Include="Spark.Web.Mvc">
       <HintPath>..\lib\Spark.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
+    <Reference Include="StructureMap, Version=2.6.1.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,30 +55,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractApplicationTenant.cs" />
-    <Compile Include="ContainerControllerActionInvoker.cs" />
-    <Compile Include="ContainerControllerFactory.cs" />
-    <Compile Include="DefaultTenantSelector.cs" />
-    <Compile Include="Ensure.cs" />
-    <Compile Include="ExecutionFilterAttribute.cs" />
-    <Compile Include="Ext\Enumerable.cs" />
-    <Compile Include="Ext\HttpContextBase.cs" />
-    <Compile Include="Ext\String.cs" />
-    <Compile Include="Ext\StringEnumerable.cs" />
-    <Compile Include="FeatureAttribute.cs" />
-    <Compile Include="Features.cs" />
-    <Compile Include="IApplicationTenant.cs" />
-    <Compile Include="IComplexFeature.cs" />
-    <Compile Include="IContainerFilter.cs" />
-    <Compile Include="IContainerResolver.cs" />
-    <Compile Include="IFeature.cs" />
-    <Compile Include="IFeatureRegistry.cs" />
-    <Compile Include="ITenantSelector.cs" />
+    <Compile Include="AssemblySettings.cs" />
+    <Compile Include="PostBuildStep.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PostBuildStep.designer.cs">
+      <DependentUpon>PostBuildStep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TenantContainerResolver.cs" />
-    <Compile Include="TenantNotFoundException.cs" />
-    <Compile Include="TenantViewEngine.cs" />
-    <Compile Include="ThreadSafeDictionary.cs" />
+    <Compile Include="SampleTenant.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Views\Home\Index.spark" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{7FC4CED4-897E-4789-AFF4-B6BE5F02CDEA}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\Web.csproj">
+      <Project>{5A282E49-CDDB-4DD8-AC56-BBEE46EDCA31}</Project>
+      <Name>Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PostBuildStep.resx">
+      <DependentUpon>PostBuildStep.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -86,4 +92,14 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <EmbeddedResource Include="**\*.spark" />
+    </ItemGroup>
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>%25systemroot%25\Microsoft.NET\Framework\v4.0.30319\installutil "$(TargetPath)"
+copy /Y "$(TargetDir)$(TargetName)*.dll" "$(SolutionDir)Web\Tenants\"
+copy /Y "$(TargetDir)$(TargetName)*.pdb" "$(SolutionDir)Web\Tenants\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

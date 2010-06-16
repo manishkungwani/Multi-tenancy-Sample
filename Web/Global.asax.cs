@@ -1,9 +1,10 @@
 ﻿namespace MultiTenancy.Web
 {
+    using System.IO;
     using System.Web.Mvc;
     using System.Web.Routing;
-    using Spark;
-    using Spark.Web.Mvc;
+    using MultiTenancy.Core;
+    using StructureMap;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -25,16 +26,32 @@
 
             RegisterRoutes(RouteTable.Routes);
 
+            // create a container just to pull in tenants
+            var topContainer = new Container();
+            topContainer.Configure(config =>
+            {
+                config.Scan(scanner =>
+                {
+                    // scan the tenants folder
+                    // (For some reason just passing "Tenants" doesn't seem to work, which it should according to the docs)
+                    scanner.AssembliesFromPath(Path.Combine(Server.MapPath("~/"), "Tenants"));
+
+                    // pull in all the tenant types
+                    scanner.AddAllTypesOf<IApplicationTenant>();
+                });
+            });
+
+            // create selectors
+            var tenantSelector = new DefaultTenantSelector(topContainer.GetAllInstances<IApplicationTenant>());
+            var containerSelector = new TenantContainerResolver(tenantSelector);
+            
             // clear view engines, we don't want anything other than spark
             ViewEngines.Engines.Clear();
+            // set view engine
+            ViewEngines.Engines.Add(new TenantViewEngine(tenantSelector));
 
-            // this will eventually be swapped out for a custom view engine
-            // that delegates a view engine to the tenant
-            var settings = new SparkSettings()
-                                .SetDebug(true)
-                                .SetAutomaticEncoding(true)
-                                .SetDefaultLanguage(LanguageType.CSharp);
-            ViewEngines.Engines.Add(new SparkViewFactory(settings));
+            // set controller factory
+            ControllerBuilder.Current.SetControllerFactory(new ContainerControllerFactory(containerSelector));
         }
     }
 }
