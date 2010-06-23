@@ -1,12 +1,10 @@
 ﻿using System.Web.Mvc;
-using Spark;
 
 namespace MultiTenancy.Web.Controllers
 {
-    [Precompile]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View("Index");
         }

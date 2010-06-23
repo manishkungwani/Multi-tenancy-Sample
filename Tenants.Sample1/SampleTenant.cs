@@ -1,9 +1,6 @@
 ﻿namespace MultiTenancy.Tenants.Sample1
 {
-    using System.Web.Mvc;
     using MultiTenancy.Core;
-    using MultiTenancy.Web.Controllers;
-    using StructureMap;
 
     /// <summary>
     /// Tenant for "Sample1" Tenant
@@ -19,15 +16,7 @@
             ViewEngine = DetermineViewEngine();
 
             // setup dependency container
-            DependencyContainer = new Container();
-            DependencyContainer.Configure(config =>
-            {
-                // this will be changed and simplified!
-                config.AddType(typeof(IController), typeof(HomeController));
-                config.AddType(typeof(IController), typeof(AccountController));
-
-                config.For<IApplicationTenant>().Singleton().Use(this);
-            });
+            DependencyContainer = AssemblySettings.FormContainer(config => config.For<IApplicationTenant>().Singleton().Use(this));
 
             ApplicationName = "Sample 1";
             MinifyJavaScript = true;

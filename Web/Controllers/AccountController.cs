@@ -1,9 +1,7 @@
 ﻿using System.Web.Mvc;
-using Spark;
 
 namespace MultiTenancy.Web.Controllers
 {
-    [Precompile]
     public class AccountController : Controller
     {
         public ActionResult Login()

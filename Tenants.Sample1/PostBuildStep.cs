@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.Reflection;
+using System.Web.Mvc;
 using Spark;
 using Spark.FileSystem;
 using Spark.Web.Mvc.Install;
@@ -20,8 +21,12 @@ namespace MultiTenancy.Tenants.Sample1
         {
             // Add controllers from assemblies. 
             // NOTE: This will change to reflect the override model.
-            foreach (var viewSetting in AssemblySettings.AssemblyViewPaths)
-                e.Batch.FromAssembly(viewSetting.Item1);
+            /*foreach (var viewSetting in AssemblySettings.AssemblyViewPaths)
+                e.Batch.FromAssembly(viewSetting.Item1);*/
+
+
+            foreach (var controller in AssemblySettings.FormContainer().GetAllInstances<IController>())
+                e.Batch.For(controller.GetType());
         }
 
         /// <summary>

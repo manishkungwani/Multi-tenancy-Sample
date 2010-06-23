@@ -63,12 +63,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\ContainerControllerFactoryTests.cs" />
+    <Compile Include="Core\ControllerConventionTests.cs" />
     <Compile Include="Core\DefaultTenantSelectorTests.cs" />
     <Compile Include="Core\EnsureTests.cs" />
     <Compile Include="Core\ExecutionFilterAttributeTests.cs" />
     <Compile Include="Core\FeatureAttributeTests.cs" />
     <Compile Include="Core\FeatureTests.cs" />
     <Compile Include="Core\ProperController.cs" />
+    <Compile Include="Helpers\Controllers\FooController.cs" />
+    <Compile Include="Helpers\Controllers\Sub\FooController.cs" />
     <Compile Include="Helpers\Ext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\TenantContainerResolverTests.cs" />
